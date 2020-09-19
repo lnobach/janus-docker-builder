@@ -19,4 +19,4 @@ if [ ! -z "$COPYKEY" ]; then
     chown janus "$TARGETKEY"
 fi
 
-su janus -c /usr/local/bin/janus $@
+sudo -u janus /usr/local/bin/janus $@

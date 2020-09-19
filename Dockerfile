@@ -1,6 +1,6 @@
 FROM alpine:3.12
 
-RUN apk add --no-cache curl autoconf automake libtool pkgconf build-base \
+RUN apk add --no-cache sudo curl autoconf automake libtool pkgconf build-base \
   glib-dev libconfig-dev libnice-dev jansson-dev openssl-dev zlib \
   gengetopt libwebsockets-dev git
 
