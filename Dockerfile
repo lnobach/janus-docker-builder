@@ -28,7 +28,7 @@ RUN cd /tmp && \
 
 # JANUS
 
-RUN cd / && \
+RUN cd /tmp && \
     git clone https://github.com/meetecho/janus-gateway && \
     cd janus-gateway && \
     git checkout $JANUS_VERSION && \
@@ -37,9 +37,9 @@ RUN cd / && \
     make && \
     make install && \
     make configs && \
-    adduser -D janus
+    rm -r /tmp/janus-gateway && \
+    adduser --uid 1000 -D janus
 
-USER janus
-WORKDIR /janus-gateway
+COPY entrypoint /entrypoint
 
-CMD [ "janus" ]
+CMD [ "/entrypoint" ]
