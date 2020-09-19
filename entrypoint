@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+
+set -e
+
+TARGETCERT=/etc/janus/janus.crt
+TARGETKEY=/etc/janus/janus.key
+
+if [ ! -z "$COPYCERT" ]; then
+    mkdir -p /etc/janus
+    cp "$COPYCERT" "$TARGETCERT"
+    chmod 644 "$TARGETCERT"
+    chown janus "$TARGETCERT"
+fi
+
+if [ ! -z "$COPYKEY" ]; then
+    mkdir -p /etc/janus
+    cp "$COPYKEY" "$TARGETKEY"
+    chmod 600 "$TARGETKEY"
+    chown janus "$TARGETKEY"
+fi
+
+su janus -c /usr/local/bin/janus $@
