@@ -4,9 +4,9 @@ RUN apk add --no-cache sudo curl autoconf automake libtool pkgconf build-base \
   glib-dev libconfig-dev libnice-dev jansson-dev openssl-dev zlib \
   gengetopt libwebsockets-dev git
 
-ARG USRSCTP_VERSION=7dab23aa0d8db86fedd222a308067439b03fad0f
+ARG USRSCTP_VERSION=b882f261e775618243ff4d6f9c7b6272b39f6583
 ARG LIBSRTP_VERSION=v2.3.0
-ARG JANUS_VERSION=v0.10.8
+ARG JANUS_VERSION=v0.10.9
 
 RUN cd /tmp && \
     git clone https://github.com/sctplab/usrsctp && \
